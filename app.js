@@ -1,11 +1,11 @@
 'use strict';
 
 var namesAll = [
-    { name: "bag", type: "jpg" }, { name: "banana", type: "jpg" }, { name: "bathroom", type: "jpg" }, { name: "boots", type: "jpg" },
-    { name: "breakfast", type: "jpg" }, { name: "bubblegum", type: "jpg" }, { name: "chair", type: "jpg" }, { name: "cthulhu", type: "jpg" },
-    { name: "dog-duck", type: "jpg" }, { name: "dragon", type: "jpg" }, { name: "pen", type: "jpg" }, { name: "pet-sweep", type: "jpg" },
-    { name: "scissors", type: "jpg" }, { name: "shark", type: "jpg" }, { name: "tauntaun", type: "jpg" }, { name: "unicorn", type: "jpg" },
-    { name: "water-can", type: "jpg" }, { name: "wine-glass", type: "jpg" }, { name: "usb", type: "gif" }, { name: "sweep", type: "png" }
+    { name: "bag", type: "jpg" },       { name: "banana", type: "jpg" },     { name: "bathroom", type: "jpg" },  { name: "boots", type: "jpg" },
+    { name: "breakfast", type: "jpg" }, { name: "bubblegum", type: "jpg"},   { name: "chair", type: "jpg" },     { name: "cthulhu", type: "jpg" },
+    { name: "dog-duck", type: "jpg" },  { name: "dragon", type: "jpg" },     { name: "pen", type: "jpg" },       { name: "pet-sweep", type: "jpg" },
+    { name: "scissors", type: "jpg" },  { name: "shark", type: "jpg" },      { name: "tauntaun", type: "jpg" },  { name: "unicorn", type: "jpg" },
+    { name: "water-can", type: "jpg" }, { name: "wine-glass", type: "jpg" }, { name: "usb", type: "gif" },       { name: "sweep", type: "png" }
 ];
 
 

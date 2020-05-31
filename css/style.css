@@ -5,3 +5,31 @@ img {
     margin: 10px;
     border-radius: 5px;
   }
+
+  .sidenav {
+    height: 100%;
+    width: 437px;
+    position: fixed;
+    z-index: 1;
+    top: 101px;
+    left: 0;
+    background-color: burlywood;
+    overflow-x: hidden;
+    padding-top: 128px;
+    color: black;
+  }
+  
+ul{
+  margin-top: 2%;
+
+}
+
+p{
+  margin-top: -25%;
+
+}
+  #vote{
+    margin-left: 437px; /* Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+  }
