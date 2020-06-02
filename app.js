@@ -1,5 +1,8 @@
 'use strict';
 
+
+// All variables
+
 var namesAll = [
     { name: "bag", type: "jpg" }, { name: "banana", type: "jpg" }, { name: "bathroom", type: "jpg" }, { name: "boots", type: "jpg" },
     { name: "breakfast", type: "jpg" }, { name: "bubblegum", type: "jpg" }, { name: "chair", type: "jpg" }, { name: "cthulhu", type: "jpg" },
@@ -9,6 +12,18 @@ var namesAll = [
 ];
 
 
+var leftBus, rightBus, middleBus;
+var a = 50, b = 50, c = 50;
+var aOld, bOld, cOld;
+var iter = true;
+var oldValues = [];
+var totalClicks = 0;
+var imgLabel = [];
+
+var leftImage = document.getElementById('leftImage');
+var rightImage = document.querySelector('#rightImage');
+var middleImage = document.querySelector('#middleImage');
+var imagesSection = document.querySelector('#vote');
 
 
 // Constructor
@@ -27,27 +42,18 @@ for (var i = 0; i < namesAll.length; i++) {
     new Bus(namesAll[i].name, namesAll[i].type);
 }
 
-//console.table(Bus.all);
+renderImages();
 
-
-// 
-var leftImage = document.getElementById('leftImage');
-var rightImage = document.querySelector('#rightImage');
-var middleImage = document.querySelector('#middleImage');
-var imagesSection = document.querySelector('#vote');
-
-var leftBus, rightBus, middleBus;
-var a = 50, b = 50, c = 50;
-var aOld, bOld, cOld;
-var iter = true;
-var oldValues = [];
 
 function renderImages() {
+    //pick random img
     leftBus = Bus.all[randomNumber(0, Bus.all.length - 1)];
     rightBus = Bus.all[randomNumber(0, Bus.all.length - 1)];
     middleBus = Bus.all[randomNumber(0, Bus.all.length - 1)];
     
-    console.log(leftBus.BusName, oldValues);
+    console.log('first iteration : ', oldValues , leftBus, rightBus, middleBus);
+
+    //apply  conditions
 
     while (leftBus == rightBus || leftBus == middleBus || rightBus == middleBus
         || oldValues.includes[leftBus] || oldValues.includes[middleBus] || oldValues.includes[rightBus]) {
@@ -55,15 +61,15 @@ function renderImages() {
             renderImages();
     }
 
+    console.log('2nd iteration : ', oldValues);
+
     oldValues = [];
-    console.log('empty', oldValues);
 
     oldValues.push(leftBus);
     oldValues.push(rightBus);
     oldValues.push(middleBus);
-    console.log(oldValues);
 
-
+    //fill properties
     leftImage.src = leftBus.imagePath;
     leftImage.alt = leftBus.BusName;
     leftImage.title = leftBus.BusName;
@@ -83,11 +89,9 @@ function renderImages() {
 
 }
 
-renderImages();
 
 //counting the clicks
 
-var totalClicks = 0;
 vote.addEventListener('click', handleClick);
 
 function handleClick(event) {
@@ -116,16 +120,8 @@ function handleClick(event) {
         renderResults1();
     }
 }
-// function renderResults () {
-//     var ulE1 = document.getElementById('finalResult');
-//     for( var i =0; i<Bus.all.length; i++) {
-//       var li = document.createElement('li');
-//       li.textContent = `${Bus.all[i].BusName} has ${Bus.all[i].clicks} clicks and was shown ${Bus.all[i].views} times `;
-//       ulE1.append(li);
-//     }
-//     console.table('after',Bus.all);
 
-//   }
+
 //helper functions
 
 function randomNumber(min, max) {
@@ -135,25 +131,8 @@ function randomNumber(min, max) {
     // return [a, b, c];
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-
-// function decision(a,b,c){
-//     var rand=randomNumber(0, Bus.all.length - 1);
-//     var a= rand[0];
-//     var b;
-//     while (a == b || a == c || c == b) {
-//         a = Math.floor(Math.random() * (max - min + 1)) + min;
-//         b = Math.floor(Math.random() * (max - min + 1)) + min;
-//         c = Math.floor(Math.random() * (max - min + 1)) + min;
-//     }
-
-// }
-
-
-//console.table(Bus.all);
-
 // Charts
 
-var imgLabel = [];
 for (var i = 0; i < namesAll.length; i++) {
     imgLabel.push(namesAll[i].name);
 }
@@ -234,6 +213,56 @@ function renderResults1() {
     });
 
 }
+
+
+//commented
+
+// function decision(a,b,c){
+//     var rand=randomNumber(0, Bus.all.length - 1);
+//     var a= rand[0];
+//     var b;
+//     while (a == b || a == c || c == b) {
+//         a = Math.floor(Math.random() * (max - min + 1)) + min;
+//         b = Math.floor(Math.random() * (max - min + 1)) + min;
+//         c = Math.floor(Math.random() * (max - min + 1)) + min;
+//     }
+
+// }
+
+
+//console.table(Bus.all);
+
+
+// function renderResults () {
+//     var ulE1 = document.getElementById('finalResult');
+//     for( var i =0; i<Bus.all.length; i++) {
+//       var li = document.createElement('li');
+//       li.textContent = `${Bus.all[i].BusName} has ${Bus.all[i].clicks} clicks and was shown ${Bus.all[i].views} times `;
+//       ulE1.append(li);
+//     }
+//     console.table('after',Bus.all);
+
+//   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
