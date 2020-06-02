@@ -47,21 +47,23 @@ renderImages();
 
 function renderImages() {
     //pick random img
+   do{
     leftBus = Bus.all[randomNumber(0, Bus.all.length - 1)];
     rightBus = Bus.all[randomNumber(0, Bus.all.length - 1)];
     middleBus = Bus.all[randomNumber(0, Bus.all.length - 1)];
-    
-    console.log('first iteration : ', oldValues , leftBus, rightBus, middleBus);
+   } 
+
+    // console.log('first iteration : ', oldValues , leftBus, rightBus, middleBus);
 
     //apply  conditions
 
-    while (leftBus == rightBus || leftBus == middleBus || rightBus == middleBus
-        || oldValues.includes[leftBus] || oldValues.includes[middleBus] || oldValues.includes[rightBus]) {
+    while ((leftBus === rightBus || leftBus === middleBus || rightBus === middleBus)
+        || (oldValues.includes(leftBus) || oldValues.includes(middleBus) || oldValues.includes(rightBus)));
 
-            renderImages();
-    }
+        // renderImages();
+    // }
 
-    console.log('2nd iteration : ', oldValues);
+    // console.log('2nd iteration : ', oldValues);
 
     oldValues = [];
 
@@ -111,24 +113,35 @@ function handleClick(event) {
             if (event.target.id === 'middleImage') {
                 middleBus.clicks++;
             }
-
             renderImages();
         }
     }
     else {
         vote.removeEventListener('click', handleClick);
         renderResults1();
+        // storeVotes();
+
     }
 }
 
+function storeVotes() {
+    var ProductsArray = JSON.stringify(Bus.all);
+    localStorage.setItem('productVotes', ProductsArray);
+}
+
+function getVotes() {
+    var ProductsArray = localStorage.getItem('productVotes');
+    if (ProductsArray) {
+        Bus.all = JSON.parse(ProductsArray);
+        renderResults();
+    }
+}
+
+getVotes();
 
 //helper functions
 
 function randomNumber(min, max) {
-    // a = Math.floor(Math.random() * (max - min + 1)) + min;
-    // b = Math.floor(Math.random() * (max - min + 1)) + min;
-    // c = Math.floor(Math.random() * (max - min + 1)) + min;
-    // return [a, b, c];
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 // Charts
@@ -138,6 +151,8 @@ for (var i = 0; i < namesAll.length; i++) {
 }
 
 function renderResults1() {
+
+    storeVotes();
 
     var numOfClicks = [];
     for (var i = 0; i < Bus.all.length; i++) {
@@ -191,14 +206,6 @@ function renderResults1() {
                 borderWidth: 1
             }
 
-
-
-
-
-
-
-
-
             ]
         },
         options: {
@@ -215,34 +222,18 @@ function renderResults1() {
 }
 
 
-//commented
-
-// function decision(a,b,c){
-//     var rand=randomNumber(0, Bus.all.length - 1);
-//     var a= rand[0];
-//     var b;
-//     while (a == b || a == c || c == b) {
-//         a = Math.floor(Math.random() * (max - min + 1)) + min;
-//         b = Math.floor(Math.random() * (max - min + 1)) + min;
-//         c = Math.floor(Math.random() * (max - min + 1)) + min;
-//     }
-
-// }
 
 
-//console.table(Bus.all);
+function renderResults() {
+    
+    var ulE1 = document.getElementById('finalResult');
+    for (var i = 0; i < Bus.all.length; i++) {
+        var li = document.createElement('li');
+        li.textContent = `${Bus.all[i].BusName} has ${Bus.all[i].clicks} clicks and was shown ${Bus.all[i].views} times `;
+        ulE1.append(li);
+    }
+}
 
-
-// function renderResults () {
-//     var ulE1 = document.getElementById('finalResult');
-//     for( var i =0; i<Bus.all.length; i++) {
-//       var li = document.createElement('li');
-//       li.textContent = `${Bus.all[i].BusName} has ${Bus.all[i].clicks} clicks and was shown ${Bus.all[i].views} times `;
-//       ulE1.append(li);
-//     }
-//     console.table('after',Bus.all);
-
-//   }
 
 
 

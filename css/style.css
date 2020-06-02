@@ -1,38 +1,89 @@
+
+  img {
+    width: 300px;
+    height: 300px;
+    border: 10px solid greenyellow;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+  }
+
+
+
 img {
     width: 300px;
     height: 300px;
     padding: 10px;
     margin: 10px;
     border-radius: 5px;
-  }
-
-  .sidenav {
-    height: 100%;
-    width: 437px;
-    position: fixed;
-    z-index: 1;
-    top: 101px;
-    left: 0;
-    background-color: burlywood;
-    overflow-x: hidden;
-    padding-top: 128px;
-    /* color: black; */
-    color: rgb(226, 113, 175);
+    margin-left: 87px;
 
   }
-  
-ul{
-  margin-top: 2%;
 
-}
 
-p{
-  margin-top: -25%;
-
-}
   #vote{
-    margin-left: 437px; /* Same as the width of the sidenav */
+    margin-left: 50px;
+    /* margin-left: 437px; Same as the width of the sidenav */
   font-size: 28px; /* Increased text to enable scrolling */
   padding: 0px 10px;
   }
+
+
+  body {
+    background: darkcyan;
+  }
+  header {
+    text-align: center;
+    border: 5px solid coral;
+    color: white;
+    margin-bottom: 40px;
+  }
+  header nav ul {
+    list-style: none;
+  }
+  header nav ul li {
+    display: inline-block;
+    padding: 10px;
+  }
+  header nav ul li a {
+    text-decoration: none;
+    color: coral;
+    font-size: 25px;
+    font-weight: 100;
+  }
+  header nav ul li a:hover {
+    color: white;
+  }
+  #imagesSection {
+    max-width: 90%;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
